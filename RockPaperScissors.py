@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 player1 = ""
 player2 = ""
 
@@ -20,3 +21,6 @@ while True:
     #elif player1 == "rock" and player2 == "paper":
         #print("Player 2 WINS!")
     #break
+=======
+
+>>>>>>> origin/master
