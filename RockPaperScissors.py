@@ -1,26 +1,27 @@
-<<<<<<< HEAD
-player1 = ""
-player2 = ""
+from question import Question
 
-while True:
-    if player1 == player2:
-        player1 = input("enter your move player 1: ")
-        player2 = input("enter your move player 2: ")
-    elif player1 == "rock" and player2 == "scissors":
-        print("Player 1 WINS!")
-    break
+question_prompts = [
+    "what kind of dog is Nolee? \na) A wolf \nb) A chiwahwa \nc) A golden doodle\n\n"
+    "what is Nora's favorite animal? \na) A wolf \nb) A unicorn \nc) A pig\n\n"
+    "what is Owen's favorite animal? \na) A dinosaur \nb) A cow \nc) A walrus\n\n"
+]
 
-    #elif player1 == "scissors" and player2 == "paper":
-       # print("Player 1 WINS!")
-    #elif player1 == "paper" and player2 == "rock":
-        #print("Player 1 WINS!")
-    #elif player1 == "scissors" and player2 == "rock":
-        #print("Player 1 WINS!")
-    #elif player1 == "paper" and player2 == "scissors":
-        #print("Player 2 WINS!")
-    #elif player1 == "rock" and player2 == "paper":
-        #print("Player 2 WINS!")
-    #break
-=======
+questions = [
+    Question(question_prompts[0], "c"),
+    Question(question_prompts[1], "b"),
+    Question(question_prompts[2], "a"),
+]
 
->>>>>>> origin/master
+def run_test(questions):
+    score = 0
+    for question in questions:
+        answer = input(question.prompt)
+        if answer == question.answer:
+            score += 1
+    print("You got " + str(score) + "out of " + str(len(questions)) + " correct!!!")
+    if score > 1:
+        print("great job!")
+    else:
+        print("better luck next time!!")
+
+run_test(questions)
