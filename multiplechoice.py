@@ -1,4 +1,7 @@
-from question import Question
+class Question:
+    def __init__(self, prompt, answer):
+        self.prompt = prompt
+        self.answer = answer
 
 question_prompts = [
     "what kind of dog is Nolee? \na) A wolf \nb) A chiwahwa \nc) A golden doodle\n\n",
