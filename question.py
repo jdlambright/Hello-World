@@ -1,5 +1,5 @@
-
 pos = -1
+
 def search(list, n):
     i = 0
     while i < len(list):
@@ -10,7 +10,7 @@ def search(list, n):
     return False
 
 list = [5,1,4,3,9,7]
-n = 5
+n = float(input("enter a number: "))
 
 if search(list, n):
     print("found at ", pos+1)
