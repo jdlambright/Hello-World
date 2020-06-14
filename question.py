@@ -9,13 +9,6 @@ def search(list, n):                    #this is creating a function for a linea
 
     return False                        #this lets us know the element was not found
 
-# another way to do this is with a while loop
-# while i < len(list):
-#   if list[i] == n:
-#       globals()['pos'] = i
-#       return True
-#   i += 1
-
 list = [5,1,4,3,9,7]                    #this is the list of elements
 
 n = float(input("enter a number: "))    #this ask the user to input a number to check if its in the list
@@ -24,3 +17,10 @@ if search(list, n):                     #this if statement says if our search fi
     print("found at ", pos+1)
 else:
     print("not found")                  #this lets the user know the element is not in the list
+
+# another way to do this is with a while loop
+# while i < len(list):
+#   if list[i] == n:
+#       globals()['pos'] = i
+#       return True
+#   i += 1
