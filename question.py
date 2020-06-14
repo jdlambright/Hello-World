@@ -8,6 +8,7 @@ def search(list, n):
             return True
 
     return False
+
 # another way to do this is with a while loop
 # while i < len(list):
 #   if list[i] == n:
@@ -15,8 +16,8 @@ def search(list, n):
 #       return True
 #   i += 1
 
-
 list = [5,1,4,3,9,7]
+
 n = float(input("enter a number: "))
 
 if search(list, n):
