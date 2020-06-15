@@ -1,10 +1,26 @@
-name = input("what is you name? ")
-birthyear = int(input("what year were you born? "))
-hundred = birthyear + 100
+pos = -1                                #this is setting a global variable
 
-print("hello " +str(name) + "! You will turn 100 in the year " + str(hundred) + "!")
+def search(list, n):
+    l = 0
+    u = len(list)-1
+    while l <= u:
+        mid = (l + u) // 2
 
-n = int(input("Enter a number: "))
+        if list[mid] == n:
+            globals()['pos'] = mid
+            return True
+        else:
+            if list[mid] < n:
+                l = mid+1
+            else:
+                u = mid+1
+    return False
 
-for i in range(n):
-    print("hello " + str(name) + "! You will turn 100 in the year " + str(hundred) + "!")
+list = [2,6,8,22,37,44,107]                    #this is the list of elements
+
+n = float(input("enter a number: "))    #this ask the user to input a number to check if its in the list
+
+if search(list, n):                     #this if statement says if our search finds an element tell us where it is located
+    print("found at ", pos+1)
+else:
+    print("not found")
