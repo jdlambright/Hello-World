@@ -16,7 +16,7 @@ def search(list, n):
                 u = mid+1
     return False
 
-list = [2,6,8,22,37,44,107]                    #this is the list of elements
+list = [2,5,16,27,46,83]                    #this is the list of elements
 
 n = float(input("enter a number: "))    #this ask the user to input a number to check if its in the list
 
