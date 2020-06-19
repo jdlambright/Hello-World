@@ -1,18 +1,9 @@
 #when I learn something new, this is where i go back to practice it on my own
-pos = -1
+num1 = 50
+num2 = 30
+result = num1 * num2
 
-def search(list, n):
-    i = 0
-    for i in range(len(list)):
-        if list[i] == n:
-            globals() ['pos']= i
-            return True
-    return False
-list = [2,4,7,12,18,22]
+print(result)
 
-n = float(input("enter a number: "))
-
-if search(list, n):
-    print("found at ", pos +1)
-else:
-    print("not found")
+if result > 1000:
+    print(num1 +num2)
