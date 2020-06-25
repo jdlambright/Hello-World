@@ -1,13 +1,13 @@
 # i feel like there was a bug in my other program but could not find it
 # i made this file so I could leave the other and look at it with greg
-pos = -1
+pos  = -1
 
 def search(list, n):
     l = 0
     u = len(list)- 1
 
     while l <= u:
-        mid = (l + u) // 2
+        mid = (l+u)//2
 
         if list[mid] == n:
             globals()['pos'] = mid
@@ -16,14 +16,12 @@ def search(list, n):
             if list[mid] < n:
                 l = mid + 1
             else:
-                u = mid + 1
+                u = mid+1
     return False
-
-list = [2, 4, 5, 7, 8, 10]
+list = [2, 3, 5, 8, 9]
 n = int(input("enter a number: "))
 
 if search(list, n):
-    print("found at ", pos + 1)
-
+    print("found at", pos + 1)
 else:
     print("not found")
