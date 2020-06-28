@@ -1,25 +1,38 @@
-#merge sort code
-def create_array(size=10, max=50):
-    from random import randint
-    return [randin(0,max)for _ in range(size)]
+def merge_sort(array):
 
-a=[2,4,6,8]
-b=[1,3,5,7]
+    if len(array)<=1:
+        return array
 
-def merge(a,b):
-    c=[] #final output of array
-    a_idx,b_idx = 0,0
-    while a_idx<len(a) and b_idx<len(b):
-        if a[a_idx]<b[b_idx]:
-            c.append(a[a_idx])
-            a_idx+=1
-        else:
-            c.append(b[b_idx])
-            b_idx+=1
-    if a_idx==len(a): c.extend(b[b_idx:])
-    else:             c.extend(a[a_idx:])
+    midpoint = int(len(array)/ 2)
 
-def merge_sort(a):
-    if len(a)<=1: return a
-    left,right = merge_sort(a[:len(a)/2]), merge_sort(a[len(a)/2:])
+    left,right = merge_sort(array[:midpoint]), merge_sort(array[midpoint:])
+
     return merge(left,right)
+
+def merge(left,right):
+    result = []
+    left_pointer = right_pointer = 0
+    while left_pointer < len(left) and right_pointer < len(right):
+
+        if left[left_pointer] < right[right_pointer]:
+
+            result.append(left[left_pointer])
+            left_pointer += 1
+        else:
+            result.append(right[right_pointer])
+            right_pointer += 1
+
+    result.extend(left[left_pointer:])
+    result.extend(right[right_pointer:])
+
+    return result
+
+def main():
+    array = [4,6,8,2,1]
+    print(array)
+
+    result = merge_sort(array)
+    print(result)
+
+if __name__ == "__main__":
+    main()
