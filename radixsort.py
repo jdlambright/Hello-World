@@ -1,4 +1,4 @@
-to_sort = [23,556,78,34,12,478,2345]
+to_sort = [23,553,78,34,12,478,2345,11,32,47,27]
 division = 1
 Mod = 10
 start = True
@@ -8,6 +8,8 @@ while start:
     for num in to_sort:
         position = num % Mod // division
         bucket[position]. append(num)
+        if not start and position > 0:
+            start = True
     print(bucket)
     to_sort = []
     for bucknum in bucket:
