@@ -9,7 +9,7 @@ def quick_sort(seq):
     lower = []
 
     for item in seq:
-        if item < pivot:
+        if item <= pivot:
             greater.append(item)
         else:
             lower.append(item)
