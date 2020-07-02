@@ -1,19 +1,19 @@
-def quick_sort(sequence):
-    length = len(sequence)
+def quick_sort(seq):
+    length = len(seq)
     if length <= 1:
-        return sequence
+        return seq
     else:
-        pivot = sequence.pop
+        pivot = seq.pop
 
-    items_greater = []
-    items_lower = []
+    greater = []
+    lower = []
 
-    for item in sequence:
-        if item > pivot:
-            items_greater.append(item)
+    for item in seq:
+        if item < pivot:
+            greater.append(item)
         else:
-            items_lower.append(item)
+            lower.append(item)
 
-    return quick_sort(items_lower) + pivot + quick_sort(items_greater)
+    return quick_sort(items_lower) + [pivot] + quick_sort(items_greater)
 
-print(quick_sort([3,5,2,6,7,9,8,6,4,3,3,4,2,1,0]))
+print(quick_sort([4,2,3,1,5]))
