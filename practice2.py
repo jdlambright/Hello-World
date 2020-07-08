@@ -11,7 +11,7 @@ def search(list, n):
             return True
     return False
 
-list = [2,4,6,8,9,45,24]
+list = [2,4,6,8,9,48,24]
 n = int(input("enter a number: "))
 
 if search(list, n):
