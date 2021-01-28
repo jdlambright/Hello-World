@@ -12,6 +12,12 @@ def is_leap(year):
 
 
 def days_in_month(year, month):
+    """this function calculates a leap year and tells you
+    if feb has 29 days"""
+
+    #line 15 is a doc string, it gives user in future a brief explanation of what the function does
+    # you use the " as shown above and it can span multiple lines
+    #must be used immediately line after function is named
     if month > 12 or month < 1:
         return "invalid output"
     month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
