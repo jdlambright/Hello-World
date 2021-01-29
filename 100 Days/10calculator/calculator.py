@@ -50,5 +50,5 @@ def calculator():
             #clear()
             calculator()
 
-
+#this makes it a function that calls itself aka recursive fi
 calculator()
