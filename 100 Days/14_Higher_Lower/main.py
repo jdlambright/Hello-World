@@ -4,7 +4,7 @@ from art import logo, vs
 #from replit import clear
 
 
-def get_random_account():
+def generate_random_account():
     """Get data from random account"""
     return random.choice(data)
 
@@ -32,15 +32,15 @@ def game():
     print(logo)
     score = 0
     game_should_continue = True
-    account_a = get_random_account()
-    account_b = get_random_account()
+    account_a = generate_random_account()
+    account_b = generate_random_account()
 
     while game_should_continue:
         account_a = account_b
-        account_b = get_random_account()
+        account_b = generate_random_account()
 
         while account_a == account_b:
-            account_b = get_random_account()
+            account_b = generate_random_account()
 
         print(f"Compare A: {format_data(account_a)}.")
         print(vs)
