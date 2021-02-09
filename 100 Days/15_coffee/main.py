@@ -1,28 +1,4 @@
-MENU = {
-    "espresso": {
-        "ingredients": {
-            "water": 50,
-            "coffee": 18,
-        },
-        "cost": 1.5,
-    },
-    "latte": {
-        "ingredients": {
-            "water": 200,
-            "milk": 150,
-            "coffee": 24,
-        },
-        "cost": 2.5,
-    },
-    "cappuccino": {
-        "ingredients": {
-            "water": 250,
-            "milk": 100,
-            "coffee": 24,
-        },
-        "cost": 3.0,
-    }
-}
+from menu import MENU
 
 profit = 0
 resources = {
@@ -31,7 +7,7 @@ resources = {
     "coffee": 100,
 }
 
-
+# TODO: 4. Check Resources
 def is_resource_sufficient(order_ingredients):
     """Returns True when order can be made, False if ingredients are insufficient."""
     for item in order_ingredients:
@@ -40,7 +16,7 @@ def is_resource_sufficient(order_ingredients):
             return False
     return True
 
-
+# TODO: 5. Process Coins
 def process_coins():
     """Returns the total calculated from coins inserted."""
     print("Please insert coins.")
@@ -50,10 +26,11 @@ def process_coins():
     total += int(input("how many pennies?: ")) * 0.01
     return total
 
-
+# TODO: 6. Check transaction success
 def is_transaction_successful(money_received, drink_cost):
     """Return True when the payment is accepted, or False if money is insufficient."""
     if money_received >= drink_cost:
+        # round tells the numbers to round, 2 says to round it to 2 decimal places
         change = round(money_received - drink_cost, 2)
         print(f"Here is ${change} in change.")
         global profit
@@ -63,7 +40,7 @@ def is_transaction_successful(money_received, drink_cost):
         print("Sorry that's not enough money. Money refunded.")
         return False
 
-
+# TODO 7. Make coffee
 def make_coffee(drink_name, order_ingredients):
     """Deduct the required ingredients from the resources."""
     for item in order_ingredients:
@@ -74,14 +51,23 @@ def make_coffee(drink_name, order_ingredients):
 is_on = True
 
 while is_on:
+    # TODO: 1. Ask user for command
     choice = input("​What would you like? (espresso/latte/cappuccino): ")
+    # TODO: 2. Create a way for the machine to turn off
     if choice == "off":
         is_on = False
+        print("Shutting down. See you Later")
+    # TODO: 3. Print Report
     elif choice == "report":
+        #this is how to access items in dictionary
         print(f"Water: {resources['water']}ml")
         print(f"Milk: {resources['milk']}ml")
         print(f"Coffee: {resources['coffee']}g")
         print(f"Money: ${profit}")
+
+    elif choice != "espresso" or "latte" or "cappuccino" or "off" or "report":
+        print("Invalid response. Please enter correct selection. ")
+
     else:
         drink = MENU[choice]
         if is_resource_sufficient(drink["ingredients"]):
