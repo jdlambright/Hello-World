@@ -5,16 +5,28 @@
 #timmy = turtle.Turtle()
 
 #to simplify
-from turtle import Turtle, Screen
+# from turtle import Turtle, Screen
+#
+# timmy = Turtle()
+# print(timmy)
+# timmy.shape("turtle")
+# timmy.color("blue")
+# timmy.fd(100)
+#
+# my_screen = Screen()
+# #adjust object attributes
+# print(my_screen.canvheight)
+# #call object methods
+# my_screen.exitonclick()
 
-timmy = Turtle()
-print(timmy)
-timmy.shape("turtle")
-timmy.color("blue")
-timmy.fd(100)
+from prettytable import PrettyTable
 
-my_screen = Screen()
-#adjust object attributes
-print(my_screen.canvheight)
-#call object methods
-my_screen.exitonclick()
+table = PrettyTable()
+
+table.add_column("pokemon name", ["pikachu","squirtle", "charmander"])
+table.add_column("type", ["electric", "water", "fire"])
+
+#adjust attribute
+table.align ="l"
+
+print(table)
