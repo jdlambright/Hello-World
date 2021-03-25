@@ -1,10 +1,10 @@
 PLACEHOLDER = "[name]"
 
-
+#first open file to read the list of names
 with open("./Input/Names/invited_names.txt") as names_file:
     names = names_file.readlines()
-    print(names)
 
+#second tell python to create the new file for each name
 with open("./Input/Letters/starting_letter.txt") as letter_file:
     letter_contents= letter_file.read()
     for name in names:
