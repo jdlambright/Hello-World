@@ -14,41 +14,32 @@
 
 import pandas
 
+#this tells what file to read. because i do not have excel it didnt work however this is how it looks
+data = pandas.read_csv("squirrel.csv")
 
-data = pandas.read_csv("weather_data.csv")
-#this tells us what type of data is being stored
-#print(type(data))
-#this tells us to print the column labeled temp
-#print(data["temp"])
+#this isolates and counts the number of each color
+grey_squirrels = len(data[data["primary fur color"] == "grey"])
+red_squirrels = len(data[data["primary fur color"] == "cinnamon"])
+black_squirrels = len(data[data["primary fur color"] == "black"])
 
-#there are a lot of methods in pandas
-#one that is very useful is to_dict. it converts your data to a pyton dictionary
-data_to_dict = data.to_dict()
-print(data_dict)
+#this displays them for us
+print(grey_squirrels)
+print(red_squirrels)
+print(black_squirrels)
 
-print(data["temp"].max())
 
-#you can get data from column one of 2 ways. the attribute is case sensative
-print(data["condition"]) #treated like key
-print(data.condition)   #treated like an object
-
-#filter data in rows
-print(data[data.day == "monday"])
-
-#find row with maximum
-print(data[data.temp == data.temp.max()])
-
-monday = data[data.day == "monday"]
-monday_temp = int(monday.temp)
-monday_temp_f = monday_tem * 1.8 + 32
-print(monday_temp_f)
-
-#create a data frame from scratch
 data_dict = {
-    "students": ["amy", "james", "angela"]
-    "scores": [76, 56, 65]
+    "fur color": ["Grey", "Cinnamon", "Black"],
+    "Count": [grey_squirrels, red_squirrels, black_squirrels]
+
 }
-data = pandas.DataFrame(data_dict)
-data.to_csv("csv_data.csv")
+
+#turn to data frame(write new csv file)
+df = pandas.DataFrame(data_dict)
+df.to_csv("squirrel_count.csv")
+
+
+
+
 
 
