@@ -20,10 +20,7 @@ while len(guessed_states) < 50:
 
     #checks for exit code. if its typed then it adds all missing states to new file
     if answer_state  == "Exit":
-        missing_states = []
-        for state in all_states:
-            if state not in guessed_states:
-                missing_states.append(state)
+        missing_states = [state for state in all_states if state not in guessed_states]
         df = pandas.DataFrame(missing_states)
         df.to_csv("missing_states.csv")
         break
