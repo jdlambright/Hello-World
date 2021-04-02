@@ -11,13 +11,39 @@ FONT_NAME = "Courier"
 WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
+reps = 0
+timer = None
 
 # ---------------------------- TIMER RESET ------------------------------- # 
+def reset_timer():
+    window.after_cancel(timer)
+    canvas.itemconfig(timer_text, text="00:00")
+    timer_label.config(text="Timer")
+    check_marks.config(text="")
+    global reps
+    reps = 0
+
 
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
 
 def start_timer():
-    count_down(5*60)
+    global reps
+    work_sec = WORK_MIN * 60
+    short_break_sec = SHORT_BREAK_MIN * 60
+    long_break_sec = LONG_BREAK_MIN * 60
+
+    reps += 1
+    if reps % 8 == 0:
+        count_down(long_break_sec)
+        timer_label.config(text="Sit back and RELAX", fg=RED)
+
+    elif reps % 2 == 0:
+        count_down(short_break_sec)
+        timer_label.config(text="Short Break", fg=PINK)
+
+    else:
+        count_down(work_sec)
+        timer_label.config(text="Time to Work", fg=GREEN)
 
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
@@ -30,7 +56,15 @@ def count_down(count):
 
     canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
     if count> 0:
-        window.after(1000, count_down, count-1)
+        global timer
+        timer = window.after(1000, count_down, count-1)
+    else:
+        start_timer()
+        marks = ""
+        work_sessions = math.floor(reps/2)
+        for _  in range(work_sessions):
+            marks += "✔"
+        check_marks.config(text=marks)
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -53,11 +87,11 @@ timer_label.config(padx=15, pady=15)
 start_button = Button(text="Start",highlightthickness=0, command=start_timer)
 start_button.grid(column=0, row=2)
 
-reset_button = Button(text="Reset", highlightthickness=0)
+reset_button = Button(text="Reset", highlightthickness=0, command=reset_timer)
 reset_button.grid(column=3, row=2)
 
 check_marks = Label(text="label", fg=GREEN, bg= YELLOW,font=(FONT_NAME, 22, "bold"))
-check_marks.config(text="✔")
+check_marks.config(text="")
 check_marks.grid(column=1, row=4)
 check_marks.config(padx=15, pady=15)
 
