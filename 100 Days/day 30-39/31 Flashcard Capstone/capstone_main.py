@@ -7,6 +7,7 @@ current_card = {}
 to_learn = {}
 
 # read data
+#the try and except are there to first see if there are existing words to learn if not it pulls from original list
 try:
     data = pandas.read_csv("./data/words_to_learn.csv")
 except FileNotFound:
@@ -18,6 +19,7 @@ else:
 
 # Functions
 def next_card():
+    #the reason we have windows.after_cancel is because the timer needs to reset with each card
     global current_card, flip_timer
     window.after_cancel(flip_timer)
     current_card = random.choice(to_learn)
@@ -45,6 +47,7 @@ window = Tk()
 window.title("Language Flashcards")
 window.config(padx=50, pady=50, bg=BACKGROUND_COLOR)
 
+#this shows the french card and after 3 sec it will switch to english if not guessed
 flip_timer = window.after(3000, flip_card)
 
 canvas = Canvas(width=700, height=375, bg=BACKGROUND_COLOR, highlightthickness=0)
