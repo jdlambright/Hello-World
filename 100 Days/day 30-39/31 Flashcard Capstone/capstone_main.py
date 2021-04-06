@@ -9,12 +9,12 @@ to_learn = {}
 # read data
 #the try and except are there to first see if there are existing words to learn if not it pulls from original list
 try:
-    data = pandas.read_csv("./data/words_to_learn.csv")
+    quote = pandas.read_csv("./data/words_to_learn.csv")
 except FileNotFound:
     original_data = pandas.read_csv(".data/french_words.csv")
     to_learn = original_data.to_dict(orient="records")
 else:
-    to_learn = data.to_dict(orient="records")
+    to_learn = quote.to_dict(orient="records")
 
 
 # Functions

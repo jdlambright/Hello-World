@@ -37,8 +37,8 @@
 
 #in the snake scoreboard on lines 11-12 we wrote this to retrieve the data
 #and set high score as a variable to that data
-with open("data.txt") as data:
-    self.high_score = int(data.read())
+with open("data.txt") as quote:
+    self.high_score = int(quote.read())
 
 #in lines 26-28 we wrote this to erase and rewrite the current data if a new high score was acheived
     new_score = str(self.high_score)

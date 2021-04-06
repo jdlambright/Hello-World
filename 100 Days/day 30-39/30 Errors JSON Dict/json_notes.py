@@ -11,16 +11,16 @@ with open("data.json", "w") as data_file:
 
 #read in json or json.load()
 with open("data.json", "r") as data_file:
-    data = json.load(data_file)
+    quote = json.load(data_file)
 
 
 #append in json or  json.update()
 with open("data.json", "r") as data_file:
     # reading old data
-    data = json.load(data_file)
+    quote = json.load(data_file)
     #updating old data with new data
-    data.update(new_data)
+    quote.update(new_data)
 
 with open("data.json", "w") as data_file:
     #saving updated data
-    json.dump(data, data_file, indent=4)
+    json.dump(quote, data_file, indent=4)

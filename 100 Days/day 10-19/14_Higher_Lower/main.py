@@ -6,7 +6,7 @@ from art import logo, vs
 
 def generate_random_account():
     """Get data from random account"""
-    return random.choice(data)
+    return random.choice(quote)
 
 
 def format_data(account):

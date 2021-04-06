@@ -15,12 +15,12 @@
 import pandas
 
 #this tells what file to read. because i do not have excel it didnt work however this is how it looks
-data = pandas.read_csv("squirrel.csv")
+quote = pandas.read_csv("squirrel.csv")
 
 #this isolates and counts the number of each color
-grey_squirrels = len(data[data["primary fur color"] == "grey"])
-red_squirrels = len(data[data["primary fur color"] == "cinnamon"])
-black_squirrels = len(data[data["primary fur color"] == "black"])
+grey_squirrels = len(quote[quote["primary fur color"] == "grey"])
+red_squirrels = len(quote[quote["primary fur color"] == "cinnamon"])
+black_squirrels = len(quote[quote["primary fur color"] == "black"])
 
 #this displays them for us
 print(grey_squirrels)

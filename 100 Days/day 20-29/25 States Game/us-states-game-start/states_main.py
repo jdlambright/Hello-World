@@ -9,8 +9,8 @@ screen.addshape(image)
 turtle.shape(image)
 
 #read csv add states data to list
-data = pandas.read_csv("50_states.csv")
-all_states = data.state.to_list()
+quote = pandas.read_csv("50_states.csv")
+all_states = quote.state.to_list()
 guessed_states = []
 
 
@@ -30,7 +30,7 @@ while len(guessed_states) < 50:
         t = turtle.Turtle()
         t.hideturtle()
         t.penup()
-        state_data = data[data.state == answer_state]
+        state_data = quote[quote.state == answer_state]
         t.goto(int(state_data.x), int(state_data.y))
         t.write(answer_state)
 
