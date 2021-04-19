@@ -29,6 +29,38 @@ programming_dictionary["Bug"] = "A moth in your computer."
 
 #######################################
 
+#grade project
+student_scores = {
+  "Harry": 81,
+  "Ron": 78,
+  "Hermione": 99,
+  "Draco": 74,
+  "Neville": 62,
+}
+# 🚨 Don't change the code above 👆
+
+# Create an empty dictionary called student_grades.
+
+student_grades = {}
+
+# Write your code below to add the grades to student_grades.👇
+for student in student_scores:
+  score = student_scores[student]
+  if score > 90:
+    student_grades[student] = "A"
+
+  elif score > 80:
+    student_grades[student] = "B"
+
+  elif score > 70:
+    student_grades[student] = "C"
+
+  else:
+    student_grades[student] = "fail"
+
+# 🚨 Don't change the code below 👇
+print(student_grades)
+
 #Nesting
 capitals = {
   "France": "Paris",
@@ -81,7 +113,7 @@ travel_log = [
 ]
 #🚨 Do NOT change the code above
 
-#TODO: Write the function that will allow new countries
+#Write the function that will allow new countries
 #to be added to the travel_log. 👇
 
 def add_new_country(country_visited, times_visited, cities_visited):
